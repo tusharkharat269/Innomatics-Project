@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: rgb(2, 0, 36);
+        background: linear-gradient(
+          90deg,
+          rgba(2, 0, 36, 1) 0%,
+          rgba(35, 35, 93, 1) 35%,
+          rgba(0, 212, 255, 1) 100%
+        );
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffffb5;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        margin-bottom: 5px;
+      }
+      #email-validation-msg {
+        margin-top: 10px;
+        font-style: italic bold;
+      }
+      .no-matches {
+        text-align: center;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Matched Strings</h1>
+      {% if matched_strings %}
+      <ul>
+        {% for string in matched_strings %}
+        <li>{{ string }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="no-matches">No matched strings found.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
