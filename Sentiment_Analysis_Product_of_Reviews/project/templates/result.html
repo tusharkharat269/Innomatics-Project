@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Sentiment Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .results-container {
+            width: 50%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .results-container h2 {
+            margin-bottom: 20px;
+        }
+        .review {
+            margin-bottom: 10px;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="results-container">
+            <h2>Review Sentiment Results:</h2>
+            {% for review, prediction in predictions %}
+                <div class="review">
+                    <p>{{ review }}</p>
+                    {% if prediction == 1 %}
+                        <p class="positive">Positive</p>
+                        <img src="/static/positive.jpg" alt="Positive" width="100">
+                    {% else %}
+                        <p class="negative">Negative</p>
+                        <img src="/static/negative.png" alt="Negative" width="100">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
